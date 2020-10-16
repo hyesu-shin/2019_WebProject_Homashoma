@@ -10,6 +10,10 @@ router.get('/selectjoin', function(req, res,next) {
     res.render('./contents/selectjoin');
 })
 
-router.use('/selectjoin', join)
+router.get('/login', function(req, res, next) {
+    res.render('./contents/login');
+})
+
+router.use('/selectjoin', join);
 
 module.exports = router;
