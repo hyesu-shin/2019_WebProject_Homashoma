@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../layout/head %>
+</head>
+<body class="mainpage">
+    <header>
+        <% include ../layout/header %>
+    </header>
+    <main>
+        <div class="container">
+            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+            <h2>SELLER SIGN UP</h2>
+            <form name="joinform" method=POST action="./joinseller">
+                <input type=hidden name="role" id = "role" value="Seller">
+                <table class="ad">
+                    <tr>
+                        <th>아이디</th>
+                        <td>
+                            <input type="text" name="id" id="id" onchange=idDuplicateCheck() autocomplete="off"><br />
+                            <div style= "margin:5px -5px 0 0;color:red;" id = idmsg></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호</th>
+                        <td><input type="password" name="password" id="password" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호 확인</th>
+                        <td>
+                            <input type="password" name="passwordconfirm" id="passwordconfirm" onchange=passwordEqualCheck() autocomplete="off"> 
+                            <br />
+                            <div style= "margin:5px -5px 0 0;color:red;" id = passwordmsg></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td><input type="text" name="name" autocomplete="off"></td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td> 
+                            <input type="text" id="postcode" placeholder="우편번호"autocomplete="off">
+                            <input type="button" id="postcodebutton" onclick="execDaumPostcode()" value="우편번호 찾기"autocomplete="off"> <br>
+                            <input type="text" name = "address" id="address" placeholder="주소"autocomplete="off"> <br>
+                            <input type="text" name = "detailaddress" id="detailaddress" placeholder="상세주소"autocomplete="off">
+                            <input type="text" name = "extraaddress" id="extraaddress" placeholder="참고항목"autocomplete="off">
+                            <input type="hidden" name = "fulladdress" id = "fulladdress">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>휴대전화</th>
+                        <td><select type="text" name="phone1" id="phone1">
+                                <option value="010">010</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            <input type='text' name = "phone2" id = "phone2" size="3" maxlength="4"  autocomplete="off"/> - <input type='text' name = "phone3" id = "phone3" size="3" maxlength="4"autocomplete="off"  />
+                            <input type='hidden' name = "phonenum" id = "phonenum"autocomplete="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td><input type = "email" name = "email" autocomplete="off"></td>
+                    </tr>
+                </table>
+            </form>
+            <div class="inputSub">
+                <input type="button" value="회원가입" class="signUp" onClick= "insertcheck()"autocomplete="off">
+                <input type="button" value="취소" class="back">
+            </div>
+
+        </div>
+        <script type="text/javascript" src="/javascripts/postcode.js"></script>
+        <script type="text/javascript" src="/javascripts/joinform.js"></script>
+    </main>
+    <footer>
+        <% include ../layout/footer %>
+    </footer>
+</body>
+</html>
