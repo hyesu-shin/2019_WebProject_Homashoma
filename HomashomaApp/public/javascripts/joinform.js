@@ -60,19 +60,15 @@ function idDuplicateCheck() {
 	var id = document.getElementById("id").value;
 	var role = document.getElementById("role").value;
 
-	
-	if (id.type == null) {
-		console.log(id);
-	}
-
 	$.ajax({
-		url: './idcheck',
+		url: './idcheck/',
 		type: 'post',
 		contentType: 'application/json; charset=utf-8',
 		dataType: 'json',
-		data: {'data':String(id)},
+		data: JSON.stringify({'id':id, 'role':role}),
 		success: function(response) {
-			if(response['result']) {
+			console.log(response['result'])
+			if(response['result']['length']==1) {
 				document.getElementById("idmsg").innerHTML = "중복된 아이디가 존재합니다";
 				document.getElementById("id").value = "";
 			}
