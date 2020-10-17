@@ -13,14 +13,30 @@
                 <h4>MEMBER LOGIN</h4>
                 <table class="a">
                     <tr>
+                        <!-- seller인지 buyer인지 선택하는 부분 추가해야함 -->
+                    </tr>
+                    <tr>
                         <th>ID</th>
                         <td>
                             <input class="id" type="text" name="id" id="id">
                         </td>
                     </tr>
+                    <tr>
+                        <th>PASSWORD</th>
+                        <td>
+                            <input class="password" type="password" name="password" id="password">
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td colspan="2" class = "loginbutton"><input type = "button" class = "login" value = "LOGIN" onClick="logincheck()"></td>
+                    </tr>
+                    <tr> 
+                        <td colspan="2" class = "joinbutton"><input type = "button" class = "join" value = "JOIN" onClick="location.href='./selectjoin'"></td>
+                    </tr>
                 </table>
             </form>
         </div>
+        <script type="text/javascript" src="/javascripts/loginform.js"></script>
     </main>
     <footer>
         <% include ../layout/footer %>
